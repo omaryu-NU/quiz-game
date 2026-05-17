@@ -1,49 +1,221 @@
 body {
   margin: 0;
-  background: #111;
-  color: white;
-  font-family: sans-serif;
+  font-family:
+    "Inter",
+    "Noto Sans JP",
+    sans-serif;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dff7ff 0%,
+      #f3e8ff 100%
+    );
+
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 480px;
+  max-width: 520px;
   margin: auto;
-  padding: 20px;
+  padding: 24px;
   text-align: center;
 }
 
+/* タイトル */
+
+h1 {
+  font-size: 42px;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 24px;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #333;
+}
+
+/* カード風UI */
+
+.questionBox,
+.playerCard,
+.inputCard {
+  background:
+    rgba(255,255,255,0.7);
+
+  backdrop-filter: blur(12px);
+
+  border:
+    1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.08);
+
+  border-radius: 24px;
+}
+
+/* 問題 */
+
+.questionBox {
+  padding: 32px 20px;
+  margin-bottom: 24px;
+}
+
+.questionBox h2 {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 入力 */
+
 input {
   width: 100%;
-  height: 50px;
-  margin-bottom: 10px;
-  font-size: 20px;
+  height: 56px;
+
+  margin-bottom: 14px;
+  padding: 0 16px;
+
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 18px;
+
+  box-sizing: border-box;
+
+  background: white;
+
+  box-shadow:
+    inset 0 2px 6px rgba(0,0,0,0.08);
 }
+
+/* ボタン共通 */
 
 button {
   width: 100%;
   height: 60px;
-  margin-bottom: 10px;
-  font-size: 24px;
+
   border: none;
-  border-radius: 12px;
+  border-radius: 20px;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
 }
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* 通常ボタン */
+
+button:not(.buzzButton) {
+  background:
+    linear-gradient(
+      135deg,
+      #7c4dff,
+      #b388ff
+    );
+
+  color: white;
+
+  box-shadow:
+    0 6px 16px rgba(124,77,255,0.4);
+}
+
+/* 早押しボタン */
 
 .buzzButton {
-  height: 200px;
-  font-size: 40px;
-  background: orange;
+  height: 220px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #ffe082,
+      #ff9800
+    );
+
+  color: white;
+
+  font-size: 52px;
+  font-weight: 900;
+
+  margin-bottom: 24px;
+
+  box-shadow:
+    0 12px 32px rgba(255,152,0,0.45),
+    inset 0 4px 12px rgba(255,255,255,0.5);
+
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.25);
 }
+
+/* 押せない時 */
+
+.buzzButton:disabled {
+  background: #ccc;
+  box-shadow: none;
+}
+
+/* プレイヤー一覧 */
 
 .playerCard {
-  background: #222;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 10px;
+  padding: 16px;
+  margin-top: 12px;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  color: #333;
 }
 
-.questionBox {
-  background: #222;
-  padding: 20px;
-  border-radius: 10px;
+/* 回答エリア */
+
+.answerBox {
+  margin-top: 20px;
+}
+
+/* ルーム番号 */
+
+.roomText {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+
   margin-bottom: 20px;
+}
+
+/* スマホ */
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  .buzzButton {
+    height: 180px;
+    font-size: 42px;
+  }
+
+  .questionBox h2 {
+    font-size: 22px;
+  }
 }
